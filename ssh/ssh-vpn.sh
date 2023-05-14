@@ -252,8 +252,14 @@ echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
-#install bbr dan optimasi kernel
-#wget https://raw.githubusercontent.com/pontora/autoscript-multiws/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+#SETTING BANNER
+echo "MEMASANG BANNER DEFAULT"
+sleep 1
+echo -e "[ ${green}INFO$NC ] Settings banner"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Zeadxt/v/main/issue.net"
+chmod +x /etc/issue.net
+echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
