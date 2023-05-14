@@ -256,7 +256,7 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 # Ganti Banner
-wget -O /etc/issue.net "${url}/issue.net"
+#wget -O /etc/issue.net "${url}/issue.net"
 
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
